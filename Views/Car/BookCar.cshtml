@@ -1,0 +1,92 @@
+@model Project.Dto.BookCarRequestModel
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Car Rental App</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    
+    <link rel="stylesheet" href="~/myCss/indexcss.css" />
+</head>
+<body class="logo";">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                
+                @* <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+     
+                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="Login">LoginCustomer</a>
+                        </li>
+                        
+                         
+                        
+                    </ul>
+                </div> *@
+            </div>
+        </nav>
+    </header>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class=" card col-md-6">
+            <div class="card-body ">
+                <div class="bg-light">
+                    <h1 class="tagcolor" style="color:mediumblue">Create</h1>
+                    <p class="tagcolor" style="color:mediumblue">Please fill in this form to Book Car.</p>
+                    <hr class="tagcolor" style="color:mediumblue">
+                </div>
+                <form asp-action="BookCar" asp-controller="Car">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="Id" value=@Model.Id hidden>
+                    <div class="form-row">
+                        <div class="form-group col-sm-6">
+                            <label asp-for="Name" class="control-label"></label>
+                            <input asp-for="Name" class="form-control" name="Name" value=@Model.Name readonly/>
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label asp-for="MDel" class="control-label"></label>
+                            <input asp-for="MDel" class="form-control" name="MDel" value=@Model.MDel readonly/>
+                            <span asp-validation-for="MDel" class="text-danger"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group col-sm-6">
+                            <label asp-for="BorrowedDate" class="control-label"></label>
+                            <input  class="form-control" type="date" name="BorrowedDate" />
+                            <span asp-validation-for="BorrowedDate" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label asp-for="ReturnedDate" class="control-label"></label>
+                            <input  class="form-control" type="date" name="ReturnedDate" />
+                            <span asp-validation-for="ReturnedDate" class="text-danger"></span>
+                        </div>
+                    </div>
+                       
+                    <div class="form-group ">
+                        <input href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,22 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  web_api:
+    build:      
+      context: .
+    depends_on: ["sql"]
+    ports:
+      - "80:80"
+    environment:
+      - ASPNETCORE_URLS=http://+:80
+    command: 
+      - "dotnet ef database update"
+  
+
+  sql:
+    container_name: db
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    ports: # not actually needed, because the two services are on the same network
+      - "1433:1433" 
+    environment:
+      - ACCEPT_EULA=y
+      - SA_PASSWORD=A&VeryComplex123Password
