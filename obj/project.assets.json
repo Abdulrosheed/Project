@@ -127,6 +127,18 @@
           "build/net6.0/Microsoft.EntityFrameworkCore.Design.props": {}
         }
       },
+      "Microsoft.EntityFrameworkCore.InMemory/6.0.13": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.13"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/6.0.12": {
         "type": "package",
         "dependencies": {
@@ -874,6 +886,20 @@
         "lib/net6.0/Microsoft.EntityFrameworkCore.Design.xml",
         "microsoft.entityframeworkcore.design.6.0.12.nupkg.sha512",
         "microsoft.entityframeworkcore.design.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/6.0.13": {
+      "sha512": "NEOR8DI3v3heJkWLhyu7LyoXLGB0qNlkABzkzQ+90/YTjFlQU/L/tbG2cKMsZXtk4hlTI10Xzn24h+YkUNustw==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.inmemory/6.0.13",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.xml",
+        "microsoft.entityframeworkcore.inmemory.6.0.13.nupkg.sha512",
+        "microsoft.entityframeworkcore.inmemory.nuspec"
       ]
     },
     "Microsoft.EntityFrameworkCore.Relational/6.0.12": {
@@ -1887,6 +1913,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.EntityFrameworkCore >= 6.0.13",
+      "Microsoft.EntityFrameworkCore.InMemory >= 6.0.13",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.12",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.12",
       "NCrontab.Signed >= 3.3.2"
@@ -1898,11 +1925,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/abdulrosheed/Folders/Project/Project.csproj",
+      "projectUniqueName": "/home/abdulrosheed/Folders/Projects/car_app_C#/Project.csproj",
       "projectName": "Project",
-      "projectPath": "/home/abdulrosheed/Folders/Project/Project.csproj",
+      "projectPath": "/home/abdulrosheed/Folders/Projects/car_app_C#/Project.csproj",
       "packagesPath": "/home/abdulrosheed/.nuget/packages/",
-      "outputPath": "/home/abdulrosheed/Folders/Project/obj/",
+      "outputPath": "/home/abdulrosheed/Folders/Projects/car_app_C#/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/abdulrosheed/.nuget/NuGet/NuGet.Config"
@@ -1930,6 +1957,10 @@
         "targetAlias": "net6.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[6.0.13, )"
+          },
+          "Microsoft.EntityFrameworkCore.InMemory": {
             "target": "Package",
             "version": "[6.0.13, )"
           },

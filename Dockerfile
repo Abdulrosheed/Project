@@ -1,21 +1,12 @@
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
-WORKDIR /app
-EXPOSE 80
-
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine AS build-env
 WORKDIR /src
-COPY ["Project.csproj", "."]
-RUN dotnet restore "./Project.csproj"
+EXPOSE 80
+ENV ASPNETCORE_URLS=http://+:80
+COPY *.csproj .
+RUN dotnet restore
 COPY . .
-WORKDIR "/src/."
-RUN dotnet build "Project.csproj" -c Release -o /app/build
-RUN dotnet tool install --global dotnet-ef
-FROM build AS publish
-RUN dotnet publish "Project.csproj" -c Release -o /app/publish /p:UseAppHost=false
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-# COPY --from=build /root/.dotnet/corefx/cryptography/x509stores/my/ .
-#ENTRYPOINT ["dotnet", "Project.dll"]
-CMD ["dotnet", "Project.dll"]
-ENTRYPOINT ["dotnet", "Project.dll", "--environment=Production", "--migration=true"]
+RUN dotnet publish -c Release -o /publish
+FROM mcr.microsoft.com/dotnet/aspnet:6.0-alpine as runtime
+WORKDIR /publish
+COPY --from=build-env /publish .
+ENTRYPOINT ["dotnet", "Project.dll"]

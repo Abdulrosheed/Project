@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/abdulrosheed/Folders/Project/Project.csproj": {}
+    "/home/abdulrosheed/Folders/Projects/car_app_C#/Project.csproj": {}
   },
   "projects": {
-    "/home/abdulrosheed/Folders/Project/Project.csproj": {
+    "/home/abdulrosheed/Folders/Projects/car_app_C#/Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/abdulrosheed/Folders/Project/Project.csproj",
+        "projectUniqueName": "/home/abdulrosheed/Folders/Projects/car_app_C#/Project.csproj",
         "projectName": "Project",
-        "projectPath": "/home/abdulrosheed/Folders/Project/Project.csproj",
+        "projectPath": "/home/abdulrosheed/Folders/Projects/car_app_C#/Project.csproj",
         "packagesPath": "/home/abdulrosheed/.nuget/packages/",
-        "outputPath": "/home/abdulrosheed/Folders/Project/obj/",
+        "outputPath": "/home/abdulrosheed/Folders/Projects/car_app_C#/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/abdulrosheed/.nuget/NuGet/NuGet.Config"
@@ -39,6 +39,10 @@
           "targetAlias": "net6.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
               "version": "[6.0.13, )"
             },

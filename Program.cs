@@ -15,9 +15,7 @@ builder.Services.AddScoped<IUserRepository , UserRepository>();
 builder.Services.AddScoped<IUserService , UserService>();
 builder.Services.AddScoped<ICarRepository , CarRepository>();
 builder.Services.AddScoped<ICarService , CarService>();
-var connectionString = "Data Source=db;Initial Catalog=car-db; User Id=sa;PassWord=A&VeryComplex123Password";
-builder.Services.AddDbContext<ContextClass>(options =>
-                options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<ContextClass>(options => options.UseInMemoryDatabase("car-app"));
 builder.Services.AddControllers();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(config =>
